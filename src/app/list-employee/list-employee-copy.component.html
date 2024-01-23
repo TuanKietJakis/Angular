@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+</head>
+
+<body>
+
+
+
+  <div class="d-flex mb-3 flex-wrap">
+
+    <div class="d-flex flex-column w-26 mr-4 "> 
+      <mat-label for="organization">法人名</mat-label>
+      <ngx-select-dropdown [(ngModel)]="selectedCompany" (selectionChange)="applyCompanyFilter()">
+        <!-- ... Dropdown content goes here ... -->
+      </ngx-select-dropdown>
+      <p class="m-0 p-0 ellipsis corp-content-hidden" id="selectContentName_organization"></p>
+    </div>
+
+    <div class="d-flex flex-column w-26 mr-4">
+      <mat-label for="company">事業所名</mat-label>
+      <ngx-select-dropdown id="company">
+        <!-- ... Dropdown content goes here ... -->
+      </ngx-select-dropdown>
+      <p class="m-0 p-0 ellipsis corp-content-hidden" id="selectContentName_company"></p>
+    </div>
+
+    <div class="d-flex flex-column w-24">
+      <mat-label for="search">コード、ログインID、氏名で検索</mat-label>
+      <mat-form-field appearance="outline" class="mat-form-field custom-form-field no-bottom">
+        <div class="mat-form-field-wrapper">
+          <div class="mat-form-field-flex">
+            <div class="mat-form-field-outline">
+              <div class="mat-form-field-outline-start"></div>
+              <div class="mat-form-field-outline-gap"></div>
+              <div class="mat-form-field-outline-end"></div>
+            </div>
+            <div class="mat-form-field-outline mat-form-field-outline-thick">
+              <div class="mat-form-field-outline-start"></div>
+              <div class="mat-form-field-outline-gap"></div>
+              <div class="mat-form-field-outline-end"></div>
+            </div>
+            <div class="mat-form-field-infix">
+              <input matinput type="text" id="search" class="mat-input-element">
+              <span class="mat-form-field-label-wrapper"></span>
+            </div>
+          </div>
+          <div class="mat-form-field-subscript-wrapper"></div>
+        </div>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <div>
+      <h6 class="mb-0 font-weight-bold">職員一覧</h6>
+      <mat-paginator role="group" custompaginator class="mat-paginator custom-paginator">
+        <!-- ... Paginator content goes here ... -->
+      </mat-paginator>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="d-flex justify-content-center align-items-center mr-3">
+        <mat-label>有効な所属をもつ職員情報のみ</mat-label>
+        <mat-slide-toggle class="ml-2 mat-accent">
+          <label class="mat-slide-toggle-label" for="mat-slide-toggle-1-input">
+            <span class="mat-slide-toggle-bar mat-slide-toggle-bar-no-side-margin">
+              <input type="checkbox" role="switch" class="mat-slide-toggle-input" id="mat-slide-toggle-1-input"
+                tabindex="0" aria-checked="true">
+              <span class="mat-slide-toggle-thumb-container">
+                <span class="mat-slide-toggle-thumb"></span>
+                <span class="mat-ripple"></span>
+              </span>
+            </span>
+            <span class="mat-slide-toggle-content"><span style="display: none;">&nbsp;</span></span>
+          </label>
+        </mat-slide-toggle>
+      </div>
+      <span class="button-link" routerlinkactive="router-link-active" tabindex="0">+職員を追加</span>
+    </div>
+  </div>
+
+  <table mat-table class="mat-table cdk-table custom-table responsive-table-user table-layout-fixed" role="table">
+    <thead role="rowgroup">
+      <tr role="row" mat-header-row class="mat-header-row cdk-header-row ng-star-inserted">
+        <th role="columnheader" mat-header-cell
+          class="mat-header-cell cdk-header-cell w-6-rem code_content cdk-column-code mat-column-code ng-star-inserted">
+          コード
+        </th>
+        <!-- ... Add other header cells ... -->
+      </tr>
+    </thead>
+
+    <tbody role="rowgroup">
+      <tr class="mat-row mat-no-data-row ng-star-inserted" role="row">
+        <td class="mat-cell" colspan="5">該当するデータがありません。</td>
+      </tr>
+      <!-- ... Add other rows ... -->
+    </tbody>
+
+    <tfoot role="rowgroup" class="mat-table-sticky" style="display: none; bottom: 0px; z-index: 10;"></tfoot>
+  </table>
+
+</body>
+
+</html>

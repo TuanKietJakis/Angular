@@ -1,0 +1,86 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+        "id": 1,
+        "organization": "ABC Company",
+        "staffNumber": "001",
+        "phone": "123-456-7890",
+        "identity": "A123456",
+        "gender": "Male",
+        "loginID": "john_doe",
+        "plant": "Headquarters",
+        "block": "A",
+        "unit": "101",
+        "code": "ABC001"
+    },
+    {
+        "id": 2,
+        "organization": "ABC Company",
+        "staffNumber": "002",
+        "phone": "987-654-3210",
+        "identity": "B789012",
+        "gender": "Female",
+        "loginID": "jane_smith",
+        "plant": "Branch Office",
+        "block": "B",
+        "unit": "201",
+        "code": "ABC002"
+    },
+    {
+        "id": 3,
+        "organization": "XYZ Corporation",
+        "staffNumber": "003",
+        "phone": "555-123-4567",
+        "identity": "C345678",
+        "gender": "Male",
+        "loginID": "mike_jones",
+        "plant": "Production Facility",
+        "block": "C",
+        "unit": "301",
+        "code": "XYZ003"
+    },
+    {
+        "id": 4,
+        "organization": "XYZ Corporation",
+        "staffNumber": "004",
+        "phone": "444-555-6666",
+        "identity": "D901234",
+        "gender": "Female",
+        "loginID": "susan_smith",
+        "plant": "Production Facility",
+        "block": "C",
+        "unit": "302",
+        "code": "XYZ004"
+    },
+    {
+        "id": 5,
+        "organization": "ABC Company",
+        "staffNumber": "005",
+        "phone": "111-222-3333",
+        "identity": "E567890",
+        "gender": "Male",
+        "loginID": "sam_wilson",
+        "plant": "Headquarters",
+        "block": "A",
+        "unit": "102",
+        "code": "ABC005"
+    }
+]
+}

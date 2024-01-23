@@ -1,0 +1,41 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .main-body {
+    padding-top: 20px;
+    margin: 0 auto;
+    max-width: 1248px;
+  
+    mat-form-field {
+      width: 100%;
+    }
+  
+  }
+  .header{
+    height: 45px;
+    background-color: #111;
+  }
+  
+  
+.employee-table-card {
+  margin-top: 16px; /* Adjust as needed */
+}
+
+.router-link-active {
+  color: blue;
+}
+
+.router-link-active:hover {
+  text-decoration: underline; 
+}
+.smaller-card {
+  max-width: 80%; /* Đặt kích thước tối đa cho thẻ */
+  margin: 0 auto; /* Canh giữa thẻ */
+}
+.button-link{
+  float: right;
+  background-color: #6da6f1; /* Đặt màu nền */
+  padding: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

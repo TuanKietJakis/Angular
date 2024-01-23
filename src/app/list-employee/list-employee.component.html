@@ -1,0 +1,99 @@
+<!-- 
+          <mat-form-field>
+            <mat-label>Filter by Company</mat-label>
+            <mat-select [(ngModel)]="selectedCompany" (selectionChange)="applyCompanyFilter()">
+              <mat-option *ngFor="let company of uniqueCompanies" [value]="company">
+                {{ company }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card> -->
+
+<div class="d-flex mb-3 flex-wrap smaller-card">
+  <main>
+
+    <div>
+      <router-outlet></router-outlet>
+
+      <!-- Search and Filter Card -->
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+          </mat-form-field>
+          <ngx-select-dropdown [options]="uniqueCompanies" (change)="applyCompanyFilter()"
+            [(ngModel)]="selectedCompany">
+          </ngx-select-dropdown>
+
+
+        </mat-card-content>
+        <!-- Paginator Card -->
+        <mat-card-content class="d-flex justify-content-between align-items-center mt-4">
+          <h6 class="mb-0 font-weight-bold"></h6>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </mat-card-content>
+
+        <!-- Table Card -->
+        <mat-card-content class="table-container">
+          <span class="button-link" routerLink="/create-employee" routerLinkActive="router-link-active" tabindex="0"> +
+            Create Employee</span>
+
+          <table mat-table [dataSource]="dataSource" matSort>
+            <!-- Code Column-->
+            <div class="title-content">
+              <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Code </th>
+                <td mat-cell *matCellDef="let row">{{row.code}}</td>
+              </ng-container>
+
+            </div>
+
+            <!-- City Column-->
+            <ng-container matColumnDef="loginID">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Login ID </th>
+              <td mat-cell *matCellDef="let row">{{row.loginID}}</td>
+            </ng-container>
+            <!-- First Name Column-->
+            <ng-container matColumnDef="identity">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Identity </th>
+              <td mat-cell *matCellDef="let row">{{row.identity}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action1">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Details & Editing </th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="primary" (click)="openEditForm(row)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action2">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Deletion </th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="warn" (click)="deleteEmployee(row.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </main>
+
+
+</div>
+<footer>
+  <!-- Đặt phần footer cố định ở đây -->
+</footer>
