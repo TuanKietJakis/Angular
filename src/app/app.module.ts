@@ -21,14 +21,16 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { SweetAlertService } from './services/sweetalert.service';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { ListEmployeeComponent } from './list-employee/list-employee.component';
-import { MenuCrudAppComponent } from './menu-crud-app/menu-crud-app.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 import { SelectDropdownComponent } from './select-dropdown/select-dropdown.component';
+import { DbsSelectDropdownComponent } from './dbs-select-dropdown/dbs-select-dropdown.component';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { StaffListComponent } from './staff-list/staff-list.component';
+import { StaffCreateComponent } from './staff-create/staff-create.component'
 
 
 @NgModule({
@@ -38,8 +40,10 @@ import { SelectDropdownComponent } from './select-dropdown/select-dropdown.compo
     EmpAddEditComponent,
     CreateEmployeeComponent,
     ListEmployeeComponent,
-    MenuCrudAppComponent,
-    SelectDropdownComponent
+    SelectDropdownComponent,
+    DbsSelectDropdownComponent,
+    StaffListComponent,
+    StaffCreateComponent
 
   ],
   imports: [
@@ -68,6 +72,7 @@ import { SelectDropdownComponent } from './select-dropdown/select-dropdown.compo
     MatSlideToggleModule,
     MatCardModule,
     FormsModule,
+    
    
     
    

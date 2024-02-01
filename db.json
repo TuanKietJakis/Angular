@@ -24,11 +24,11 @@
         "phone": "123-456-7890",
         "identity": "A123456",
         "gender": "Male",
-        "loginID": "john_doe",
+        "loginID": "bao@deltabrains.vn",
         "plant": "Headquarters",
         "block": "A",
         "unit": "101",
-        "code": "ABC001"
+        "code": "bao123"
     },
     {
         "id": 2,
@@ -37,11 +37,11 @@
         "phone": "987-654-3210",
         "identity": "B789012",
         "gender": "Female",
-        "loginID": "jane_smith",
+        "loginID": "kiet@deltabrains.vn",
         "plant": "Branch Office",
         "block": "B",
         "unit": "201",
-        "code": "ABC002"
+        "code": "kietiii2"
     },
     {
         "id": 3,
@@ -50,11 +50,11 @@
         "phone": "555-123-4567",
         "identity": "C345678",
         "gender": "Male",
-        "loginID": "mike_jones",
+        "loginID": "mike@deltabrains.vn",
         "plant": "Production Facility",
         "block": "C",
         "unit": "301",
-        "code": "XYZ003"
+        "code": "mikene11"
     },
     {
         "id": 4,
@@ -63,11 +63,11 @@
         "phone": "444-555-6666",
         "identity": "D901234",
         "gender": "Female",
-        "loginID": "susan_smith",
+        "loginID": "susan@deltabrains.vn",
         "plant": "Production Facility",
         "block": "C",
         "unit": "302",
-        "code": "XYZ004"
+        "code": "susansa2"
     },
     {
         "id": 5,
@@ -76,11 +76,11 @@
         "phone": "111-222-3333",
         "identity": "E567890",
         "gender": "Male",
-        "loginID": "sam_wilson",
+        "loginID": "sam@deltabrains.vn",
         "plant": "Headquarters",
         "block": "A",
         "unit": "102",
-        "code": "ABC005"
+        "code": "samonu2"
     }
 ]
 }

@@ -6,13 +6,10 @@ import { EmployeeService } from '../services/employee.service';
   styleUrls: ['./select-dropdown.component.scss']
 })
 export class SelectDropdownComponent {
-  @Input() items: any[] = [];
-  @Output() selectionChange = new EventEmitter<any>();
+  @Input() options: any[] = []; // Input data for dropdown options
+  @Input() displayField: string = ''; // Input to specify the field to display
 
-  // Các thuộc tính và phương thức tùy chỉnh khác nếu cần thiết
+  // Add other properties and methods as needed
 
-  onDropdownChange(event: any) {
-    // Xử lý khi giá trị thay đổi
-    this.selectionChange.emit(event.value);
-  }
+  constructor() { }
 }

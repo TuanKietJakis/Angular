@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuCrudAppComponent } from './menu-crud-app.component';
+import { StaffCreateComponent } from './staff-create.component';
 
-describe('MenuCrudAppComponent', () => {
-  let component: MenuCrudAppComponent;
-  let fixture: ComponentFixture<MenuCrudAppComponent>;
+describe('StaffCreateComponent', () => {
+  let component: StaffCreateComponent;
+  let fixture: ComponentFixture<StaffCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuCrudAppComponent ]
+      declarations: [ StaffCreateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MenuCrudAppComponent);
+    fixture = TestBed.createComponent(StaffCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

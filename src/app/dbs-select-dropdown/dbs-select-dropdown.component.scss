@@ -1,0 +1,36 @@
+/* dbs-select-dropdown.component.css */
+
+/* Custom styles for the dropdown container */
+.custom-dropdown {
+  width: 200px;
+}
+
+/* Styling for the dropdown toggle button */
+.custom-dropdown .ngx-dropdown-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Styling for the dropdown items */
+.custom-dropdown .ngx-dropdown-list {
+  border: 1px solid #3498db;
+  border-top: none;
+  background-color: #fff;
+}
+
+/* Styling for each dropdown item */
+.custom-dropdown .ngx-dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for dropdown items */
+.custom-dropdown .ngx-dropdown-item:hover {
+  background-color: #3498db;
+  color: #fff;
+}

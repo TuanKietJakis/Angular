@@ -6,9 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '../core/core.service';
-import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { NgxSelectDropdownComponent, SelectDropDownModule } from 'ngx-select-dropdown';
 
 @Component({
   selector: 'app-list-employee',
@@ -17,41 +15,19 @@ import { NgxSelectDropdownComponent, SelectDropDownModule } from 'ngx-select-dro
 })
 
 export class ListEmployeeComponent implements OnInit {
-
-
-
   selectedCompany: string | undefined;
-
-  // Các cột hiển thị trong bảng
-  // displayedColumns: string[] = [
-  //   'id',
-  //   'firstName',
-  //   'lastName',
-  //   'email',
-  //   'dob',
-  //   'gender',
-  //   'education',
-  //   'company',
-  //   'experience',
-  //   'package',
-  //   'action',
-  // ];
   displayedColumns: string[] = [
     'code',
     'loginID',
     'identity',
     'action1',
     'action2',
-
-
   ];
   // Dữ liệu nguồn cho bảng
   dataSource!: MatTableDataSource<any>;
-
   // Tham chiếu đến paginator và sort trong bảng
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
   constructor(
     private _dialog: MatDialog,
     private _empService: EmployeeService,
@@ -63,21 +39,6 @@ export class ListEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.getEmployeeList();
   }
-
-  // Mở dialog để thêm mới hoặc sửa thông tin nhân viên
-  // openAddEditEmpForm() {
-  //   const dialogRef = this._dialog.open(EmpAddEditComponent);
-  //   dialogRef.afterClosed().subscribe({
-  //     next: (val: any) => {
-  //       console.log(val);
-  //       this.getEmployeeList();
-  //     },
-  //     error: (err: any) => {
-  //       console.log(err);
-  //     }
-  //   });
-  // }
-
   // Lấy danh sách nhân viên
   getEmployeeList() {
     this._empService.getEmployeeList().subscribe({
@@ -90,7 +51,6 @@ export class ListEmployeeComponent implements OnInit {
       error: console.log,
     });
   }
-
   // Áp dụng bộ lọc cho bảng khi có sự kiện nhập liệu
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -99,20 +59,43 @@ export class ListEmployeeComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // applyCompanyFilter() {
-  //   if (this.selectedCompany) {
-  //     // Lọc dữ liệu theo công ty được chọn
-  //     this.dataSource.filter = this.selectedCompany.trim().toLowerCase();
-  //   } else {
-  //     this.selectedCompany = '';
-  //     // Nếu không có công ty nào được chọn, hiển thị toàn bộ dữ liệu
-  //     this.dataSource.filter = '';
-  //   }
+  get uniqueOrganization(): string[] {
+    const organization: string[] = [];
+    this.dataSource.data.forEach((row: any) => {
+      if (!organization.includes(row.organization)) {
+        organization.push(row.organization);
+      }
+    });
+    console.log('Unique organization :', organization);
+    return organization;
+  }
+  getColumnValues(columnName: string): any[] {
+    const columnValues: any[] = [];
 
-  //   if (this.dataSource.paginator) {
-  //     this.dataSource.paginator.firstPage();
-  //   }
-  // }
+    // Lặp qua mỗi đối tượng trong mảng data
+    this.dataSource.data.forEach((row: any) => {
+      // Kiểm tra xem đối tượng có thuộc tính columnName không
+      if (row.hasOwnProperty(columnName)) {
+        // Thêm giá trị của cột vào mảng columnValues
+        columnValues.push(row[columnName]);
+      } else {
+        // Nếu không có thuộc tính columnName, có thể xử lý hoặc bỏ qua tùy thuộc vào yêu cầu
+        console.warn(`Object does not have property: ${columnName}`);
+      }
+    });
+
+    return columnValues;
+  }
+  get uniqueCompanies(): string[] {
+    const companies: string[] = [];
+    this.dataSource.data.forEach((row: any) => {
+      if (!companies.includes(row.company)) {
+        companies.push(row.company);
+      }
+    });
+    console.log('Unique Companies:', companies);
+    return companies;
+  }
   applyCompanyFilter() {
     if (!this.selectedCompany) {
       // Nếu không có công ty nào được chọn, đặt giá trị của selectedCompany là ''
@@ -127,29 +110,6 @@ export class ListEmployeeComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
-  // Hàm này sẽ trả về một mảng chứa các công ty duy nhất từ dữ liệu
-  // get uniqueCompanies(): string[] {
-  //   const companies: string[] = [];
-  //   this.dataSource.data.forEach((row: any) => {
-  //     if (!companies.includes(row.company)) {
-  //       companies.push(row.company);
-  //     }
-  //   });
-  //   return companies;
-  // }
-  get uniqueCompanies(): string[] {
-    const companies: string[] = [];
-    this.dataSource.data.forEach((row: any) => {
-      if (!companies.includes(row.company)) {
-        companies.push(row.company);
-      }
-    });
-    console.log('Unique Companies:', companies);
-    return companies;
-  }
-
-
   // Xóa nhân viên theo ID
   deleteEmployee(id: number) {
     this._empService.deleteEmployee(id).subscribe({
@@ -164,7 +124,6 @@ export class ListEmployeeComponent implements OnInit {
       error: console.log,
     });
   }
-
   // Mở dialog để chỉnh sửa thông tin nhân viên
   openEditForm(data: any) {
     const dialogRef = this._dialog.open(EmpAddEditComponent, {
@@ -180,7 +139,6 @@ export class ListEmployeeComponent implements OnInit {
       }
     });
   }
-
   openAddEditEmpForm() {
     this.router.navigate(['/create-employee']);
   }
